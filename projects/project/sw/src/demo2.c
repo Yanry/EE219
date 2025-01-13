@@ -36,17 +36,32 @@ void vadd_vi(register int* vd,register int* imm,register int* vs2){
 
 
 int main(){
-
-    int result = custom_mul(10,10);
-    printf("%d",result);
+    int i;
+    //int result = custom_mul(10,10);
+    //printf("%d",result);
 
     register int *reg_vx0 asm ("x0");
     register int *reg_vx1 asm ("x1");
     register int *reg_vx2 asm ("x2");
 
+    for (i=0; i<64; i++) {
+        int8_t data = *(reg_vx1+i);
+        printf("%d\t",data);
+    }
+    printf("\n");
+    for (i=0; i<64; i++) {
+        int8_t data = *(reg_vx2+i);
+        printf("%d\t",data);
+    }
     vadd_vv(reg_vx1, reg_vx1, reg_vx2);
     vadd_vx(reg_vx2, reg_vx1, reg_vx2);
     vadd_vi(reg_vx2, reg_vx0, reg_vx2);
+
+    printf("\n");
+    for (i=0; i<64; i++) {
+        int8_t data = *(reg_vx1+i);
+        printf("%d\t",data);
+    }
 
     return 0 ;
 }

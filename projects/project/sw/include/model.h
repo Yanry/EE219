@@ -17,10 +17,10 @@
 #define BIAS_INT16_FC3      10*2
 #define SCALE_INT8_FC3      1
 
-#define OUTPUT_INT8_CONV1   12*28*28
-#define OUTPUT_INT8_POOL1   12*14*14
-#define OUTPUT_INT8_CONV2   32*12*12
-#define OUTPUT_INT8_POOL2   32*6*6
+#define OUTPUT_INT8_CONV1   12*28*32    // 12*28*28 modified for save convenience
+#define OUTPUT_INT8_POOL1   12*14*16    // 12*14*14
+#define OUTPUT_INT8_CONV2   32*12*16    // 32*12*12
+#define OUTPUT_INT8_POOL2   32*6*8      // 32*6*6
 #define OUTPUT_INT8_FC1     256
 #define OUTPUT_INT8_FC2     64
 #define OUTPUT_INT8_FC3     10
